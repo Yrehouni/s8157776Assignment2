@@ -3,7 +3,6 @@ package com.youness.s8157776assignment2
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.youness.s8157776assignment2.viewmodel.DashboardViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.youness.s8157776assignment2.adapter.EntityAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,9 @@ import android.widget.ProgressBar
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardActivity : AppCompatActivity() {
 
     private val viewModel: DashboardViewModel by viewModels()

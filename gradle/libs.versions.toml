@@ -10,6 +10,7 @@ activityKtx = "1.13.0"
 constraintlayout = "2.2.2"
 navigationFragmentKtx = "2.6.0"
 navigationUiKtx = "2.6.0"
+hilt = "2.60.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,4 +26,5 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-ksp = { id = "com.google.devtools.ksp", version = "2.0.0-1.0.21" }
+ksp = { id = "com.google.devtools.ksp", version = "2.3.12" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

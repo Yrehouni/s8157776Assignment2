@@ -1,13 +1,14 @@
 package com.youness.s8157776assignment2.repository
 
-import com.youness.s8157776assignment2.api.RetrofitClient
+import com.youness.s8157776assignment2.api.ApiService
 import com.youness.s8157776assignment2.model.LoginRequest
 import com.youness.s8157776assignment2.model.LoginResponse
+import javax.inject.Inject
 
-class LoginRepository {
-
+class LoginRepository @Inject constructor(
+    private val api: ApiService
+) {
     suspend fun login(username: String, password: String): LoginResponse {
-        val request = LoginRequest(username, password)
-        return RetrofitClient.api.login(request)
+        return api.login(LoginRequest(username, password))
     }
 }

@@ -1,17 +1,21 @@
 package com.youness.s8157776assignment2.viewmodel
 
-import androidx.lifecycle.LiveData
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.youness.s8157776assignment2.model.DashboardResponse
-import com.youness.s8157776assignment2.model.Entity
 import com.youness.s8157776assignment2.repository.DashboardRepository
 import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DashboardViewModel : ViewModel() {
+@HiltViewModel
+class DashboardViewModel @Inject constructor(
+    private val repository: DashboardRepository
+) : ViewModel() {
 
-    private val repository = DashboardRepository()
+
 
     val dashboardData = MutableLiveData<DashboardResponse>()
     val errorMessage = MutableLiveData<String>()

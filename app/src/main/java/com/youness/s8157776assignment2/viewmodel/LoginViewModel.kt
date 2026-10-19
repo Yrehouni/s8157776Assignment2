@@ -1,17 +1,21 @@
 package com.youness.s8157776assignment2.viewmodel
 
-import android.util.Log
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.youness.s8157776assignment2.model.LoginRequest
 import com.youness.s8157776assignment2.model.LoginResponse
 import com.youness.s8157776assignment2.repository.LoginRepository
 import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
 
-    private val repository = LoginRepository()
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val repository: LoginRepository
+) : ViewModel() {
+
 
     val loginResult = MutableLiveData<LoginResponse?>()
     val errorMessage = MutableLiveData<String>()
@@ -21,7 +25,6 @@ class LoginViewModel : ViewModel() {
             try {
                 val response = repository.login(username, password)
 
-                Log.d("LOGIN_RESPONSE", "keypass = ${response.keypass}")
 
                 loginResult.value = response
             } catch (e: Exception) {
